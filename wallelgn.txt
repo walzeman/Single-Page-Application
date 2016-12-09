@@ -1,0 +1,118 @@
+
+ 1.  What represents Model, view and Controller in Angular 2?
+
+
+  Model =  properties 
+  View =   methods
+   Controller =  methods
+ 2. Angular e is a comppnent based framework. Support this statement
+ 3. what decorator function is used to decorate a service class?  No, we don't have any
+ 4. what are lifecyle hooks? how are they useful?
+    ngOnInit
+    ngOnDestroy
+
+ 5. Does angular 2 has two-way binding default? can we achieve it?  No by defalult. 
+ 6. What is the idea behind angular forcing us to write a separate bootstrap file(main.ts)?  portability and platform independent
+
+
+
+ 1. package.json   = dependencies
+ 2. tsconfig.json  = configuring compiler
+ 3.  Systemjs.config.js  = 
+
+ 4. is npm start the inbuilt command?  NO
+  npm start does the ff tasks :  comiling to js file,  starting the server, complile in the watch mode   
+
+
+second qiuiz
+
+1. When using NgIf directive, element will be hidden from the view when the condition
+results to falsy value, but is still available in the DOM. (YES/NO)
+  --  answer : NO
+
+2. $event always represents standard DOM object. (YES/ NO)
+
+  -- answer : No, not always
+3. $event is the only way get user data? (YES/NO)
+  -- answer : No
+4. What are pseudo events?
+  --  pseuod = falsey, so it is a falsey events like keyup.enter
+5. In the code given below, what was the reason behind attaching keyup event which is
+basically doing nothing?
+<input #box (keyup)="0">
+
+ -- asynchronous call
+6. What does it mean to say control is in following state
+
+a. Pristine
+b. Touched
+c. Dirty 
+d. Invalid
+7. How does angular lets us know about the different state of a form control?  by classes like ng-touched
+
+Review Q 3
+
+ 1. How do you create an instance of injector for dependency injection in Angular 2?
+	 -- Angular 2 itself creates injector instance for you. You don have to create 
+ 2. With DI application becomes more flexible for changes. Support this statement
+    -- flexibility
+ 3. @Injectable() is a mandarory decorator used fo a service class. YEs or NO
+  -- no, it is a best practice to add it anyway from the start for both consistency and for future-proofing
+ 4. what is a service provider
+   -- anything that can provide the services 
+  5. Dependency instance in Angular 2 is an applicaition wide Singleton. Yes or no
+      No, it is injector wide applicaiton
+  6. Registering provider in the root module is the only way to scoppe a service to become application wide.
+	.. the answer is not only in the root module. If you register a provider in any module, it would be aplication wide.
+  7. How can you make a dependency optioanl?
+	 by using a decorator @Optional
+ 8. Apart from services, we also need dependency injection in our components and directives.
+   But we never used @Injectable() for our componetns. Why?
+   .. becoz @Injectable() decorator is the super type of other decorators.
+
+quiz 4 answers
+1.
+2.   .?  , yes we can live with out it  
+3. 
+4.  to make it execute quickly
+5.
+6.
+7. Nothing. Angular takes care of everything to make sure your application is free from script injection attack.
+
+
+quiz review 5
+
+1. compare and contrast root module with feature module
+  similarity :  syntax
+  differences : the intent of use:- 
+2. what is purpose of each of the ff routing components
+  a. configuaration
+  b. Router Outlet
+  c. Router link
+  d. Router State:  run time memory snap shot for that route
+
+3. How do you decide between required and optional route parameter?
+4. Feature modules are not completely modular without feature routes. suppport this statement
+        -- reusablity 
+
+quiz 6
+
+1. why we still need HTTP client in an Angular 2 application, which is supposeed to be a SPA?
+  -- to get data from the server
+  -- therer might be services like authentication and authorisation which should be accessed from the server
+
+2. is http a core service provided by Angu 2 framework?
+   -- no, it should be imported separatedly
+   -- The HttpModule is not a core Angular module. It's Angular's optional approach to web access and 
+     it exists as a separate add-on module called @angular/http,shipped in a separate script file as part of the Angular npm package.
+
+3. why we still need to import from RxJS library even when Angular 2 itself makes uses of it and hence incudes it?
+  -- since it is a big library, so by default the small portion of it is inculded by Angular 2 and whenever it needs a library, it a
+
+4. What is the use of the following two operations in a Observable?
+  a. debounceTime(time-in-milli-seconds)
+      --  wait for some time frame before calling the server
+  b. distictUntlChanged()
+     -- if it is the same search we made for the previous
+5. what type is returned from a http method calls? How can we change to a promise?
+ --  observable is the returned type and we use toPromise() method to change to promise
