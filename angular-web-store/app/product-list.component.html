@@ -9,7 +9,7 @@
 <!--<product-detail [product]="selectedProduct"></product-detail>-->
 <div *ngIf="selectedProduct">
   <h2>
-    {{selectedProduct.name | uppercase}} is type of {{selectedProduct.name | uppercase}}
+    {{selectedProduct.name | uppercase}} is type of {{selectedProduct.category | uppercase}}
   </h2>
   <button (click)="gotoDetail()">View Details</button>
 </div>
