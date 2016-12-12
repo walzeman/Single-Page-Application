@@ -10,7 +10,12 @@ h2, h3 {
   font-weight: lighter;
 }
 body {
+<<<<<<< HEAD
   margin: 2em;
+=======
+  margin: 6em;
+
+>>>>>>> 6714c046e4befd99b481c789155eae8d21dbfae8
 }
 body, input[text], button {
   color: #888;
