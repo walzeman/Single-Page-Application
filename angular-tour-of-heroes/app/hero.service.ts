@@ -13,6 +13,7 @@ export class HeroService {
     return Promise.resolve(HEROES);
   }*/
 
+  private headers = new Headers({'Content-Type': 'application/json'});
   private heroesUrl = 'api/heroes';  // URL to web api
 
   constructor(private http: Http) { }
@@ -30,9 +31,45 @@ export class HeroService {
   }
 
 
-  getHero(id: number): Promise<Hero> {
-    return this.getHeroes()
+ /* getHero(id: number): Promise<Hero> {                        //  this works fine in simulation, but it is wasteful to ask a real
+    return this.getHeroes()                                     // server for all Heroes when we only want one
       .then(heroes => heroes.find(hero => hero.id === id));
+  }*/
+
+  getHero(id: number): Promise<Hero> {                          // Most web APIs support a get-by-id request in the form api/hero/:id (e.g., api/hero/11).
+    const url = `${this.heroesUrl}/${id}`;
+    return this.http.get(url)
+      .toPromise()
+      .then(response => response.json().data as Hero)
+      .catch(this.handleError);
+  }
+
+
+
+  update(hero: Hero): Promise<Hero> {
+    const url = `${this.heroesUrl}/${hero.id}`;
+    return this.http
+      .put(url, JSON.stringify(hero), {headers: this.headers})
+      .toPromise()
+      .then(() => hero)
+      .catch(this.handleError);
+  }
+
+
+  create(name: string): Promise<Hero> {
+    return this.http
+      .post(this.heroesUrl, JSON.stringify({name: name}), {headers: this.headers})
+      .toPromise()
+      .then(res => res.json().data)
+      .catch(this.handleError);
+  }
+
+  delete(id: number): Promise<void> {
+    const url = `${this.heroesUrl}/${id}`;
+    return this.http.delete(url, {headers: this.headers})
+      .toPromise()
+      .then(() => null)
+      .catch(this.handleError);
   }
 
 }

@@ -26,12 +26,17 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params
-      .switchMap((params: Params) => this.productService.getHero(+params['id']))
+      .switchMap((params: Params) => this.productService.getProduct(+params['id']))
       .subscribe(product => this.product = product);
   }
 
   goBack(): void {
     this.location.back();
+  }
+
+  save(): void {
+    this.productService.update(this.product)
+      .then(() => this.goBack());
   }
 
 }
