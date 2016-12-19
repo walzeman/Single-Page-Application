@@ -1,0 +1,15 @@
+
+What is Optional in Java 8?
+	Optional is a container object that accepts no null objects,instead it represents 	null with absent value. It checks if a value is available or not instead of checking for null values
+	
+What is lambda expression used for?
+Sort list of strings using lambda expression.
+What is stream in Java 8
+What is generic?
+
+Some data structures, stack, tree, list ...
+Easy data structures
+Concurrency and threading concepts
+
+   
+  

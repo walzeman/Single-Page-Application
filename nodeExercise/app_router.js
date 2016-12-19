@@ -9,8 +9,11 @@ const router = express.Router();
 
 router.use(function(req, res, next){
     console.log('Time', Date.now());
-    next()
+   // next()
+   res.end('router');
 })
+
+app.use('/ap', router)
 
 app.listen(3000, () => {
     console.log('Listening on port 3000');
