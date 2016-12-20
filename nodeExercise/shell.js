@@ -21,7 +21,7 @@ function logger(req,res,next){
 }
 
 function hello(req,res,next){
-  res.write('Hello \n');
+  res.write('Hello\n');
   next();
 }
 
