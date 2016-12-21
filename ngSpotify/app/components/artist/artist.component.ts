@@ -11,7 +11,8 @@ import { ActivatedRoute } from '@angular/router'
 
 })
 
-export class ArtistComponent {
+export class ArtistComponent implements OnInit {
+
   id:string;
   artist:Artist[];
   albums:Album[];
@@ -28,6 +29,12 @@ export class ArtistComponent {
               .subscribe(artist => {
                   this.artist = artist;
               })
+
+
+          this.spotifyService.getAlbums(id)
+           .subscribe(albums => {
+             this.albums = albums.items;
+           })
        })
-  }
+   }
 }

@@ -9,12 +9,24 @@ import { NavbarComponent }  from './components/navbar/navbar.component';
 import { SearchComponent } from './components/search/search.component';
 import { AboutComponent } from './components/about/about.component';
 import { HistoryComponent } from './components/history/history.component';
+import { ArtistComponent }  from './components/artist/artist.component';
+import { AlbumComponent }  from './components/album/album.component';
+
 
 import { SpotifyService } from './services/spotify.service'
 
 @NgModule({
   imports: [ BrowserModule,FormsModule,HttpModule,AppRoutingModule],
-  declarations: [ AppComponent, NavbarComponent, SearchComponent,AboutComponent,HistoryComponent],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    SearchComponent,
+    AboutComponent,
+    HistoryComponent,
+    ArtistComponent,
+    AlbumComponent
+  ],
+
   providers: [ SpotifyService ],
   bootstrap: [ AppComponent ]
 })
