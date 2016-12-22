@@ -1,0 +1,34 @@
+
+<header class="artist-header">
+    <h3>Recently played musics from Spotify : </h3>
+    <button type="button" class="btn btn-default" (click)="getArtists()"> VIEW </button>
+
+</header>
+
+<!--<div *ngIf="artists">
+    <div *ngFor="let artist of artists">
+        {{artist.name}}
+    </div>
+</div>-->
+
+<div *ngIf="artists">
+    <div *ngFor="let res of artists">
+        <div class="row">
+            <div class="col-md-12">
+               <!-- <div class="search-res  well">-->
+
+                 <div class="col-md-7">
+                     <strong>{{res.name}}</strong>
+                 </div>
+                    <!--<h4><a routerLink="/artist/{{res.id}}">{{res.name}}</a></h4>-->
+
+                    <div class="col-md-4">
+                        <input type="button" value="delete" class="btn btn-danger">
+                    </div>
+                 <br><br><br>
+
+           <!-- </div>-->
+            </div>
+        </div>
+    </div>
+</div>
